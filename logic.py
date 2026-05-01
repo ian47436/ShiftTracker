@@ -9,7 +9,6 @@ class ShiftTracker(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
 
-        # Connect buttons
         self.button_clock_in.clicked.connect(self.clock_in)
         self.button_clock_out.clicked.connect(self.clock_out)
         self.button_clear.clicked.connect(self.clear_form)
@@ -33,7 +32,6 @@ class ShiftTracker(QMainWindow, Ui_MainWindow):
 
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-        # Save to CSV
         with open("shifts.csv", "a", newline="") as file:
             writer = csv.writer(file)
             writer.writerow([user_id, time, notes])
